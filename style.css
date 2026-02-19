@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #ffffff;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Make page tall for scroll animation */
+.scroll-container {
+    height: 400vh; /* Controls scroll length */
+}
+
+/* Canvas fixed to screen */
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+/* Optional text overlay */
+.content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    margin-top: 120vh;
+    color: #1f4ed8;
+}
+
+.content h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.content p {
+    font-size: 18px;
+}
