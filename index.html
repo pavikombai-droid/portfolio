@@ -3,109 +3,99 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pavithra | Professional Resume Portfolio</title>
+<title>Pavithra | ECE Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root{
-    --primary:#0A66C2;
-    --dark:#1F2937;
-}
+
+/* ================= GLOBAL ================= */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+html{
     scroll-behavior:smooth;
 }
 
 body{
-    font-family:'Inter', sans-serif;
-    color:var(--dark);
-    background:white;
+    background:#ffffff;
+    color:#1a1a1a;
     overflow-x:hidden;
 }
 
-/* ===== SCROLL ANIMATION BACKGROUND ===== */
-#scroll-animation{
+/* ================= SCROLL BACKGROUND ================= */
+
+#scroll-bg{
     position:fixed;
     top:0;
     left:0;
     width:100%;
     height:100%;
     object-fit:cover;
+    opacity:0.06;
     z-index:-1;
-    opacity:0.22;   /* 🔥 Increased visibility */
     pointer-events:none;
+    filter:contrast(110%) brightness(110%);
 }
 
-/* ===== NAVBAR ===== */
+/* ================= NAVBAR ================= */
+
 nav{
     position:fixed;
     width:100%;
-    top:0;
-    background:rgba(255,255,255,0.9);
+    padding:20px 8%;
+    background:rgba(255,255,255,0.85);
     backdrop-filter:blur(8px);
-    padding:15px 8%;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    box-shadow:0 4px 15px rgba(0,0,0,0.05);
+    box-shadow:0 3px 15px rgba(0,0,0,0.05);
     z-index:1000;
 }
 
 nav h2{
-    color:var(--primary);
+    color:#0066ff;
     font-weight:700;
 }
 
 nav ul{
-    list-style:none;
     display:flex;
     gap:25px;
+    list-style:none;
 }
 
 nav ul li a{
     text-decoration:none;
-    color:var(--dark);
+    color:#333;
     font-weight:500;
+    transition:0.3s;
 }
 
 nav ul li a:hover{
-    color:var(--primary);
+    color:#0066ff;
 }
 
-/* ===== SECTIONS ===== */
+/* ================= SECTION ================= */
+
 section{
-    padding:120px 8%;
-    position:relative;
-    z-index:1;
+    padding:120px 10%;
+    min-height:100vh;
 }
 
 .section-title{
-    text-align:center;
-    margin-bottom:50px;
-}
-
-.section-title h2{
     font-size:32px;
-    color:var(--primary);
+    color:#0066ff;
+    margin-bottom:40px;
 }
 
-/* ===== CONTENT CARD ===== */
-.card{
-    background:rgba(255,255,255,0.95); /* Less transparent */
-    backdrop-filter:blur(6px);
-    padding:40px;
-    border-radius:16px;
-    box-shadow:0 20px 40px rgba(0,0,0,0.08);
-    margin-bottom:30px;
-}
+/* ================= HERO ================= */
 
-/* ===== HERO ===== */
 .hero{
-    min-height:100vh;
     display:flex;
     flex-direction:column;
     justify-content:center;
@@ -113,133 +103,202 @@ section{
 
 .hero h1{
     font-size:52px;
-    color:var(--primary);
-    font-weight:700;
+    color:#0066ff;
 }
 
 .hero h3{
-    margin:15px 0;
+    margin-top:10px;
     font-weight:500;
 }
 
 .hero p{
-    max-width:700px;
+    margin-top:20px;
+    max-width:750px;
     line-height:1.7;
-    margin-bottom:30px;
 }
 
 .btn{
-    padding:12px 26px;
+    display:inline-block;
+    padding:10px 22px;
+    margin-top:25px;
     margin-right:15px;
-    border-radius:8px;
+    border-radius:25px;
     text-decoration:none;
-    font-weight:500;
-    transition:0.3s ease;
+    transition:0.3s;
+    font-size:14px;
 }
 
-.btn-primary{
-    background:var(--primary);
-    color:white;
+.primary{
+    background:#0066ff;
+    color:#fff;
 }
 
-.btn-primary:hover{
-    background:#004a99;
+.outline{
+    border:2px solid #0066ff;
+    color:#0066ff;
 }
 
-.btn-outline{
-    border:2px solid var(--primary);
-    color:var(--primary);
+.btn:hover{
+    transform:translateY(-3px);
+    opacity:0.9;
 }
 
-.btn-outline:hover{
-    background:var(--primary);
-    color:white;
+/* ================= CARD ================= */
+
+.card{
+    background:rgba(255,255,255,0.9);
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:25px;
+    box-shadow:0 5px 25px rgba(0,0,0,0.05);
+    backdrop-filter:blur(6px);
 }
 
-/* ===== FOOTER ===== */
+.card h3{
+    margin-bottom:10px;
+    color:#0066ff;
+}
+
+ul{
+    margin-left:20px;
+    line-height:1.6;
+}
+
+/* ================= FOOTER ================= */
+
 footer{
-    background:var(--primary);
-    color:white;
     text-align:center;
-    padding:20px;
+    padding:40px;
+    background:#f4f8ff;
+    color:#555;
 }
 
-/* ===== RESPONSIVE ===== */
+/* ================= MOBILE ================= */
+
 @media(max-width:768px){
-    nav ul{
-        display:none;
-    }
     .hero h1{
         font-size:36px;
     }
-    section{
-        padding:90px 6%;
+
+    nav ul{
+        display:none;
     }
 }
+
 </style>
 </head>
 
 <body>
 
-<img id="scroll-animation" src="frames/ezgif-frame-001.jpg" alt="Scroll Animation">
+<!-- Scroll Background -->
+<img id="scroll-bg" src="frames/ezgif-frame-001.jpg">
 
+<!-- NAVBAR -->
 <nav>
     <h2>Pavithra</h2>
     <ul>
+        <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
     </ul>
 </nav>
 
-<section class="hero">
+<!-- HERO -->
+<section id="home" class="hero">
+    <h1>Pavithra</h1>
+    <h3>ECE Student | Embedded Systems & IoT Enthusiast</h3>
+    <p>
+        (Your full professional summary from resume will be inserted here once you provide it.)
+    </p>
+
+    <a href="resume.pdf" class="btn primary" download>Download Resume</a>
+    <a href="#projects" class="btn outline">View Projects</a>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <h2 class="section-title">About Me</h2>
     <div class="card">
-        <h1>Pavithra</h1>
-        <h3>ECE Student | Embedded Systems & IoT Enthusiast</h3>
-        <p>
-            I am a passionate 3rd year Electronics and Communication Engineering student 
-            at Government College of Engineering, Tirunelveli with a CGPA of 7.96. 
-            I am interested in Embedded Systems, IoT and real-time hardware-based projects. 
-            I am eager to apply my technical skills in internships and practical industry applications.
-        </p>
-        <a href="#" class="btn btn-primary">Download Resume</a>
-        <a href="#education" class="btn btn-outline">View Education</a>
-        <a href="#contact" class="btn btn-outline">Contact Me</a>
+        <p>(Your detailed profile summary from resume)</p>
+    </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+    <h2 class="section-title">Education</h2>
+    <div class="card">
+        <h3>B.E. Electronics and Communication Engineering</h3>
+        <p>Government College of Engineering, Tirunelveli</p>
+        <p>CGPA: 7.96</p>
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="card">
+        <ul>
+            <li>(Programming languages from resume)</li>
+            <li>(Hardware tools)</li>
+            <li>(Software tools)</li>
+            <li>(IoT platforms)</li>
+        </ul>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="card">
+        <h3>Project Title</h3>
+        <p>(Project description extracted from resume)</p>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <div class="card">
+        <p>Email: yourmail@example.com</p>
+        <p>Location: Tamil Nadu, India</p>
     </div>
 </section>
 
 <footer>
-    © 2026 Pavithra | Electronics & Communication Engineering Portfolio
+© 2026 Pavithra | Professional Portfolio
 </footer>
 
 <script>
-const totalFrames = 240;
-const animation = document.getElementById("scroll-animation");
 
-let currentFrame = 1;
-let targetFrame = 1;
+/* Scroll Controlled Frame Animation */
 
-function updateFrame(){
-    if(currentFrame !== targetFrame){
-        currentFrame += (targetFrame - currentFrame) * 0.1;
-        const frameNumber = String(Math.round(currentFrame)).padStart(3,'0');
-        animation.src = `frames/ezgif-frame-${frameNumber}.jpg`;
-    }
-    requestAnimationFrame(updateFrame);
-}
+const frameCount = 240;
+const img = document.getElementById("scroll-bg");
 
 window.addEventListener("scroll", () => {
+
     const scrollTop = window.scrollY;
     const docHeight = document.body.scrollHeight - window.innerHeight;
     const scrollFraction = scrollTop / docHeight;
-    targetFrame = Math.min(
-        totalFrames,
-        Math.floor(scrollFraction * totalFrames) + 1
+
+    const frameIndex = Math.min(
+        frameCount - 1,
+        Math.floor(scrollFraction * frameCount)
     );
+
+    const frameNumber = String(frameIndex + 1).padStart(3, '0');
+    img.src = `frames/ezgif-frame-${frameNumber}.jpg`;
+
 });
 
-updateFrame();
 </script>
 
 </body>
 </html>
+   
+  
+
+
