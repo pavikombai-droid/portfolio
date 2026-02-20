@@ -12,7 +12,6 @@
     --primary:#0A66C2;
     --light:#F4F9FF;
     --dark:#1F2937;
-    --white:#ffffff;
 }
 
 *{
@@ -25,11 +24,11 @@
 body{
     font-family:'Inter', sans-serif;
     color:var(--dark);
-    background:var(--white);
+    background:white;
     overflow-x:hidden;
 }
 
-/* ===== Scroll Animation Background ===== */
+/* ===== SCROLL ANIMATION BACKGROUND ===== */
 #scroll-animation{
     position:fixed;
     top:0;
@@ -38,8 +37,9 @@ body{
     height:100%;
     object-fit:cover;
     z-index:-1;
-    opacity:0.05; /* Watermark transparency */
+    opacity:0.05; /* watermark transparency */
     pointer-events:none;
+    filter:blur(1px);
 }
 
 /* ===== NAVBAR ===== */
@@ -48,7 +48,7 @@ nav{
     width:100%;
     top:0;
     background:rgba(255,255,255,0.85);
-    backdrop-filter:blur(8px);
+    backdrop-filter:blur(10px);
     padding:15px 8%;
     display:flex;
     justify-content:space-between;
@@ -96,13 +96,13 @@ section{
     color:var(--primary);
 }
 
-/* ===== CONTENT CARD ===== */
+/* ===== CONTENT CARDS ===== */
 .card{
     background:rgba(255,255,255,0.92);
-    backdrop-filter:blur(6px);
+    backdrop-filter:blur(8px);
     padding:30px;
-    border-radius:12px;
-    box-shadow:0 15px 35px rgba(0,0,0,0.05);
+    border-radius:14px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.06);
     margin-bottom:30px;
 }
 
@@ -184,7 +184,7 @@ footer{
 
 <body>
 
-<!-- Scroll Animation -->
+<!-- Scroll Animation Background -->
 <img id="scroll-animation" src="frames/ezgif-frame-001.jpg" alt="Scroll Animation">
 
 <!-- NAVBAR -->
@@ -197,7 +197,7 @@ footer{
     </ul>
 </nav>
 
-<!-- HERO SECTION -->
+<!-- HERO -->
 <section class="hero">
     <div class="card">
         <h1>Pavithra</h1>
@@ -253,31 +253,34 @@ footer{
     © 2026 Pavithra | Electronics & Communication Engineering Portfolio
 </footer>
 
-<!-- ===== SCROLL FRAME ANIMATION SCRIPT ===== -->
+<!-- ===== SMOOTH SCROLL FRAME ANIMATION ===== -->
 <script>
 const totalFrames = 240;
 const animation = document.getElementById("scroll-animation");
 
-// Preload frames for smoother experience
-const preloadImages = [];
-for (let i = 1; i <= totalFrames; i++) {
-    const img = new Image();
-    const frameNumber = String(i).padStart(3, '0');
-    img.src = `frames/ezgif-frame-${frameNumber}.jpg`;
-    preloadImages.push(img);
+let currentFrame = 1;
+let targetFrame = 1;
+
+function updateFrame(){
+    if(currentFrame !== targetFrame){
+        currentFrame += (targetFrame - currentFrame) * 0.1;
+        const frameNumber = String(Math.round(currentFrame)).padStart(3,'0');
+        animation.src = `frames/ezgif-frame-${frameNumber}.jpg`;
+    }
+    requestAnimationFrame(updateFrame);
 }
 
 window.addEventListener("scroll", () => {
     const scrollTop = window.scrollY;
     const docHeight = document.body.scrollHeight - window.innerHeight;
     const scrollFraction = scrollTop / docHeight;
-    const frameIndex = Math.min(
-        totalFrames - 1,
-        Math.floor(scrollFraction * totalFrames)
+    targetFrame = Math.min(
+        totalFrames,
+        Math.floor(scrollFraction * totalFrames) + 1
     );
-    const frameNumber = String(frameIndex + 1).padStart(3, '0');
-    animation.src = `frames/ezgif-frame-${frameNumber}.jpg`;
 });
+
+updateFrame();
 </script>
 
 </body>
