@@ -1,24 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Scrollable Frame Animation</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pavithra | ECE Portfolio</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --primary:#0A66C2;
+    --light:#F4F9FF;
+    --dark:#1F2937;
+    --white:#ffffff;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter', sans-serif;
+    color:var(--dark);
+    background:var(--white);
+}
+
+/* NAVBAR */
+nav{
+    position:fixed;
+    width:100%;
+    top:0;
+    background:var(--white);
+    padding:15px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 4px 15px rgba(0,0,0,0.05);
+    z-index:1000;
+}
+
+nav h2{
+    color:var(--primary);
+    font-weight:700;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:25px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:var(--dark);
+    font-weight:500;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    color:var(--primary);
+}
+
+/* SECTION BASE */
+section{
+    padding:110px 8%;
+}
+
+/* HERO */
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    background:var(--light);
+    animation:fadeIn 1s ease-in;
+}
+
+.hero h1{
+    font-size:52px;
+    color:var(--primary);
+    font-weight:700;
+}
+
+.hero h3{
+    margin:15px 0;
+    font-weight:500;
+}
+
+.hero p{
+    max-width:650px;
+    line-height:1.7;
+    margin-bottom:30px;
+}
+
+.btn{
+    padding:12px 26px;
+    margin-right:15px;
+    border-radius:6px;
+    text-decoration:none;
+    font-weight:500;
+    transition:0.3s ease;
+}
+
+.btn-primary{
+    background:var(--primary);
+    color:white;
+}
+
+.btn-primary:hover{
+    background:#004a99;
+}
+
+.btn-outline{
+    border:2px solid var(--primary);
+    color:var(--primary);
+}
+
+.btn-outline:hover{
+    background:var(--primary);
+    color:white;
+}
+
+/* SECTION TITLE */
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:32px;
+    color:var(--primary);
+}
+
+/* ABOUT */
+.about{
+    max-width:800px;
+    margin:auto;
+    line-height:1.8;
+}
+
+/* EDUCATION TIMELINE */
+.timeline{
+    position:relative;
+    max-width:800px;
+    margin:auto;
+}
+
+.timeline::before{
+    content:'';
+    position:absolute;
+    left:20px;
+    top:0;
+    bottom:0;
+    width:3px;
+    background:var(--primary);
+}
+
+.timeline-item{
+    padding-left:60px;
+    margin-bottom:40px;
+    position:relative;
+}
+
+.timeline-item::before{
+    content:'';
+    position:absolute;
+    left:13px;
+    top:8px;
+    width:15px;
+    height:15px;
+    background:var(--primary);
+    border-radius:50%;
+}
+
+.timeline-content{
+    background:var(--light);
+    padding:20px;
+    border-radius:8px;
+}
+
+/* CONTACT */
+.contact{
+    text-align:center;
+}
+
+footer{
+    background:var(--primary);
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    nav ul{
+        display:none;
+    }
+    .hero h1{
+        font-size:36px;
+    }
+    section{
+        padding:90px 6%;
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <!-- Scroll Container -->
-    <div class="scroll-container">
-        <canvas id="animationCanvas"></canvas>
+<!-- NAVBAR -->
+<nav>
+    <h2>Pavithra</h2>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <h1>Pavithra</h1>
+    <h3>ECE Student | Embedded Systems & IoT Enthusiast</h3>
+    <p>
+        I am a passionate 3rd year Electronics and Communication Engineering student at 
+        Government College of Engineering, Tirunelveli with a CGPA of 7.96. 
+        I am interested in Embedded Systems, IoT and real-time hardware-based projects. 
+        I am eager to apply my technical skills in internships and practical industry applications.
+    </p>
+
+    <div>
+        <a href="#" class="btn btn-primary">Download Resume</a>
+        <a href="#education" class="btn btn-outline">View Projects</a>
+        <a href="#contact" class="btn btn-outline">Contact Me</a>
+    </div>
+</section>
+
+<!-- ABOUT SECTION -->
+<section id="about">
+    <div class="section-title">
+        <h2>About Me</h2>
+    </div>
+    <div class="about">
+        <p>
+            • Currently pursuing B.E. Electronics and Communication Engineering (3rd Year)<br><br>
+            • CGPA: 7.96<br><br>
+            • Strong interest in electronics hardware and circuit design<br><br>
+            • Passionate about learning new technologies<br><br>
+            • Quick learner and problem solver<br><br>
+            • Interested in Embedded Systems and Communication domain
+        </p>
+    </div>
+</section>
+
+<!-- EDUCATION SECTION -->
+<section id="education">
+    <div class="section-title">
+        <h2>Education</h2>
     </div>
 
-    <!-- Optional Content Overlay -->
-    <div class="content">
-        <h1>Scroll Down</h1>
-        <p>The animation changes based on scroll position.</p>
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-content">
+                <h3>B.E. Electronics and Communication Engineering</h3>
+                <p><strong>Government College of Engineering, Tirunelveli</strong></p>
+                <p>CGPA: 7.96</p>
+                <p>2023 – Present</p>
+            </div>
+        </div>
     </div>
+</section>
 
-    <script src="script.js"></script>
+<!-- CONTACT -->
+<section id="contact" class="contact">
+    <div class="section-title">
+        <h2>Contact Me</h2>
+    </div>
+    <p>Email: yourmail@example.com</p>
+    <p>Location: Tamil Nadu, India</p>
+</section>
+
+<footer>
+    © 2026 Pavithra | Electronics & Communication Engineering Portfolio
+</footer>
+
 </body>
 </html>
