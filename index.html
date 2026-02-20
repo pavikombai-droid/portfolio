@@ -10,7 +10,6 @@
 <style>
 :root{
     --primary:#0A66C2;
-    --light:#F4F9FF;
     --dark:#1F2937;
 }
 
@@ -37,9 +36,8 @@ body{
     height:100%;
     object-fit:cover;
     z-index:-1;
-    opacity:0.15; /* watermark transparency */
+    opacity:0.22;   /* 🔥 Increased visibility */
     pointer-events:none;
-    filter:blur(1px);
 }
 
 /* ===== NAVBAR ===== */
@@ -47,8 +45,8 @@ nav{
     position:fixed;
     width:100%;
     top:0;
-    background:rgba(255,255,255,0.85);
-    backdrop-filter:blur(10px);
+    background:rgba(255,255,255,0.9);
+    backdrop-filter:blur(8px);
     padding:15px 8%;
     display:flex;
     justify-content:space-between;
@@ -72,7 +70,6 @@ nav ul li a{
     text-decoration:none;
     color:var(--dark);
     font-weight:500;
-    transition:0.3s;
 }
 
 nav ul li a:hover{
@@ -96,13 +93,13 @@ section{
     color:var(--primary);
 }
 
-/* ===== CONTENT CARDS ===== */
+/* ===== CONTENT CARD ===== */
 .card{
-    background:rgba(255,255,255,0.92);
-    backdrop-filter:blur(8px);
-    padding:30px;
-    border-radius:14px;
-    box-shadow:0 15px 35px rgba(0,0,0,0.06);
+    background:rgba(255,255,255,0.95); /* Less transparent */
+    backdrop-filter:blur(6px);
+    padding:40px;
+    border-radius:16px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.08);
     margin-bottom:30px;
 }
 
@@ -134,7 +131,7 @@ section{
 .btn{
     padding:12px 26px;
     margin-right:15px;
-    border-radius:6px;
+    border-radius:8px;
     text-decoration:none;
     font-weight:500;
     transition:0.3s ease;
@@ -184,10 +181,8 @@ footer{
 
 <body>
 
-<!-- Scroll Animation Background -->
 <img id="scroll-animation" src="frames/ezgif-frame-001.jpg" alt="Scroll Animation">
 
-<!-- NAVBAR -->
 <nav>
     <h2>Pavithra</h2>
     <ul>
@@ -197,7 +192,6 @@ footer{
     </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
     <div class="card">
         <h1>Pavithra</h1>
@@ -214,46 +208,10 @@ footer{
     </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
-    <div class="section-title"><h2>About Me</h2></div>
-    <div class="card">
-        <p>
-        • Currently pursuing B.E. Electronics and Communication Engineering (3rd Year)<br><br>
-        • CGPA: 7.96<br><br>
-        • Strong interest in electronics hardware and circuit design<br><br>
-        • Passionate about learning new technologies<br><br>
-        • Quick learner and problem solver<br><br>
-        • Interested in Embedded Systems and Communication domain
-        </p>
-    </div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education">
-    <div class="section-title"><h2>Education</h2></div>
-    <div class="card">
-        <h3>B.E. Electronics and Communication Engineering</h3>
-        <p><strong>Government College of Engineering, Tirunelveli</strong></p>
-        <p>CGPA: 7.96</p>
-        <p>2023 – Present</p>
-    </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-    <div class="section-title"><h2>Contact</h2></div>
-    <div class="card">
-        <p>Email: yourmail@example.com</p>
-        <p>Location: Tamil Nadu, India</p>
-    </div>
-</section>
-
 <footer>
     © 2026 Pavithra | Electronics & Communication Engineering Portfolio
 </footer>
 
-<!-- ===== SMOOTH SCROLL FRAME ANIMATION ===== -->
 <script>
 const totalFrames = 240;
 const animation = document.getElementById("scroll-animation");
