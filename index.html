@@ -3,309 +3,134 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Professional Resume</title>
+<title>Pavithra | Resume Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-
-/* ================== GLOBAL ================== */
-
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
-
-html{
-    scroll-behavior:smooth;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
 }
 
 body{
-    background:#ffffff;
-    color:#1a1a1a;
-    overflow-x:hidden;
+  font-family:'Poppins',sans-serif;
+  background:#000;
+  color:#fff;
+  overflow-x:hidden;
 }
 
-/* ================== SCROLL ANIMATION ================== */
-
-#scroll-animation{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    opacity:0.05; /* watermark effect */
-    z-index:-1;
-    pointer-events:none;
-    filter:contrast(110%) brightness(105%);
+/* ========== SCROLL LENGTH ========== */
+body{
+  height:500vh;
 }
 
-/* ================== NAVBAR ================== */
-
-nav{
-    position:fixed;
-    width:100%;
-    padding:20px 8%;
-    background:rgba(255,255,255,0.85);
-    backdrop-filter:blur(10px);
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    box-shadow:0 3px 15px rgba(0,0,0,0.05);
-    z-index:1000;
+/* ========== BACKGROUND ANIMATION ========== */
+#animation-container{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100vh;
+  z-index:-1;
+  opacity:0.10; /* Watermark transparency */
 }
 
-nav h2{
-    color:#0066ff;
+canvas{
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
-nav ul{
-    list-style:none;
-    display:flex;
-    gap:25px;
+/* ========== CONTENT WRAPPER ========== */
+.content{
+  position:relative;
+  z-index:10;
+  width:90%;
+  max-width:1000px;
+  margin:auto;
 }
 
-nav ul li a{
-    text-decoration:none;
-    color:#333;
-    font-weight:500;
-    transition:0.3s;
+/* ========== HERO ========== */
+.hero{
+  padding-top:120px;
+  text-align:center;
 }
-
-nav ul li a:hover{
-    color:#0066ff;
-}
-
-/* ================== SECTIONS ================== */
-
-section{
-    padding:120px 10%;
-    min-height:100vh;
-}
-
-.section-title{
-    font-size:32px;
-    margin-bottom:30px;
-    color:#0066ff;
-}
-
-/* ================== HERO ================== */
 
 .hero h1{
-    font-size:50px;
-    color:#0066ff;
+  font-size:48px;
+  font-weight:700;
 }
 
 .hero h3{
-    margin-top:10px;
-    font-weight:500;
+  margin:15px 0;
+  font-weight:400;
+  color:#ccc;
 }
 
 .hero p{
-    margin-top:20px;
-    max-width:700px;
-    line-height:1.7;
+  max-width:750px;
+  margin:20px auto;
+  line-height:1.7;
+  color:#ddd;
 }
-
-/* ================== TRANSPARENT RESUME CARD ================== */
-
-.card{
-    background:rgba(255,255,255,0.75);
-    backdrop-filter:blur(8px);
-    padding:30px;
-    border-radius:18px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.08);
-    margin-bottom:30px;
-}
-
-.card h3{
-    color:#0066ff;
-    margin-bottom:10px;
-}
-
-ul{
-    margin-left:20px;
-    line-height:1.6;
-}
-
-/* ================== BUTTONS ================== */
 
 .btn{
-    display:inline-block;
-    padding:10px 22px;
-    margin-top:20px;
-    border-radius:25px;
-    text-decoration:none;
-    transition:0.3s;
-    font-size:14px;
-}
-
-.primary{
-    background:#0066ff;
-    color:white;
-}
-
-.outline{
-    border:2px solid #0066ff;
-    color:#0066ff;
+  display:inline-block;
+  padding:10px 25px;
+  margin:10px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:500;
+  transition:0.3s;
+  border:1px solid white;
+  color:white;
 }
 
 .btn:hover{
-    transform:translateY(-3px);
-    opacity:0.9;
+  background:white;
+  color:black;
 }
 
-/* ================== FOOTER ================== */
-
-footer{
-    text-align:center;
-    padding:40px;
-    background:#f4f8ff;
-    color:#555;
+/* ========== SECTION ========== */
+.section{
+  padding:120px 0;
 }
 
-/* ================== MOBILE ================== */
-
-@media(max-width:768px){
-
-    nav ul{
-        display:none;
-    }
-
-    .hero h1{
-        font-size:35px;
-    }
-
+.section h2{
+  text-align:center;
+  margin-bottom:40px;
+  font-size:28px;
+  border-bottom:2px solid #444;
+  display:inline-block;
+  padding-bottom:5px;
 }
 
-</style>
-</head>
+.card{
+  background:rgba(255,255,255,0.05);
+  padding:30px;
+  border-radius:12px;
+  backdrop-filter:blur(6px);
+  line-height:1.8;
+}
 
-<body>
+/* ========== TIMELINE ========== */
+.timeline{
+  border-left:2px solid #fff;
+  padding-left:20px;
+}
 
-<!-- Scrollable Background Animation -->
-<img id="scroll-animation" src="frames/ezgif-frame-001.jpg" alt="Background Animation">
+.timeline-item{
+  margin-bottom:30px;
+}
 
-<!-- NAVBAR -->
-<nav>
-    <h2>Your Name</h2>
-    <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
+.timeline-item h3{
+  color:#fff;
+}
 
-<!-- HERO -->
-<section id="home" class="hero">
-    <h1>Your Name</h1>
-    <h3>ECE Student | Embedded Systems & IoT Enthusiast</h3>
-    <p>
-        Passionate Electronics and Communication Engineering student interested in
-        Embedded Systems, IoT, and hardware-based real-time projects.
-        Seeking internships and industry opportunities to apply technical skills.
-    </p>
-
-    <a href="resume.pdf" class="btn primary" download>Download Resume</a>
-    <a href="#contact" class="btn outline">Contact Me</a>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-    <h2 class="section-title">About Me</h2>
-
-    <div class="card">
-        <ul>
-            <li>B.E. Electronics and Communication Engineering</li>
-            <li>Strong interest in Hardware & Embedded Systems</li>
-            <li>Quick learner & problem solver</li>
-            <li>Interested in IoT and Communication domain</li>
-        </ul>
-    </div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education">
-    <h2 class="section-title">Education</h2>
-
-    <div class="card">
-        <h3>B.E. Electronics and Communication Engineering</h3>
-        <p>Government College of Engineering</p>
-        <p>CGPA: 7.9+</p>
-    </div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-    <h2 class="section-title">Technical Skills</h2>
-
-    <div class="card">
-        <ul>
-            <li>C / C++</li>
-            <li>Embedded C</li>
-            <li>Arduino / ESP32</li>
-            <li>IoT Fundamentals</li>
-            <li>MATLAB</li>
-        </ul>
-    </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-    <h2 class="section-title">Projects</h2>
-
-    <div class="card">
-        <h3>Rain Detection System</h3>
-        <p>
-            Designed a rain detection system using sensors and microcontroller
-            for real-time weather monitoring.
-        </p>
-    </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-    <h2 class="section-title">Contact</h2>
-
-    <div class="card">
-        <p>Email: yourmail@example.com</p>
-        <p>Location: Tamil Nadu, India</p>
-    </div>
-</section>
-
-<footer>
-© 2026 Your Name | Professional Resume
-</footer>
-
-<!-- SCROLL FRAME SCRIPT -->
-<script>
-
-const frameCount = 240;
-const img = document.getElementById("scroll-animation");
-
-window.addEventListener("scroll", () => {
-
-    const scrollTop = window.scrollY;
-    const docHeight = document.body.scrollHeight - window.innerHeight;
-    const scrollFraction = scrollTop / docHeight;
-
-    const frameIndex = Math.min(
-        frameCount - 1,
-        Math.floor(scrollFraction * frameCount)
-    );
-
-    const frameNumber = String(frameIndex + 1).padStart(3, '0');
-    img.src = `frames/ezgif-frame-${frameNumber}.jpg`;
-
-});
-
-</script>
-
-</body>
-</html>
+/* ========== SKILLS GRID ========== */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit
