@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pavithra | ECE Portfolio</title>
+<title>Professional Resume</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* ================= GLOBAL ================= */
+/* ================== GLOBAL ================== */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins', sans-serif;
+    font-family:'Poppins',sans-serif;
 }
 
 html{
@@ -28,29 +28,29 @@ body{
     overflow-x:hidden;
 }
 
-/* ================= SCROLL BACKGROUND ================= */
+/* ================== SCROLL ANIMATION ================== */
 
-#scroll-bg{
+#scroll-animation{
     position:fixed;
     top:0;
     left:0;
     width:100%;
     height:100%;
     object-fit:cover;
-    opacity:0.06;
+    opacity:0.05; /* watermark effect */
     z-index:-1;
     pointer-events:none;
-    filter:contrast(110%) brightness(110%);
+    filter:contrast(110%) brightness(105%);
 }
 
-/* ================= NAVBAR ================= */
+/* ================== NAVBAR ================== */
 
 nav{
     position:fixed;
     width:100%;
     padding:20px 8%;
     background:rgba(255,255,255,0.85);
-    backdrop-filter:blur(8px);
+    backdrop-filter:blur(10px);
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -60,13 +60,12 @@ nav{
 
 nav h2{
     color:#0066ff;
-    font-weight:700;
 }
 
 nav ul{
+    list-style:none;
     display:flex;
     gap:25px;
-    list-style:none;
 }
 
 nav ul li a{
@@ -80,7 +79,7 @@ nav ul li a:hover{
     color:#0066ff;
 }
 
-/* ================= SECTION ================= */
+/* ================== SECTIONS ================== */
 
 section{
     padding:120px 10%;
@@ -89,20 +88,14 @@ section{
 
 .section-title{
     font-size:32px;
+    margin-bottom:30px;
     color:#0066ff;
-    margin-bottom:40px;
 }
 
-/* ================= HERO ================= */
-
-.hero{
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-}
+/* ================== HERO ================== */
 
 .hero h1{
-    font-size:52px;
+    font-size:50px;
     color:#0066ff;
 }
 
@@ -113,15 +106,37 @@ section{
 
 .hero p{
     margin-top:20px;
-    max-width:750px;
+    max-width:700px;
     line-height:1.7;
 }
+
+/* ================== TRANSPARENT RESUME CARD ================== */
+
+.card{
+    background:rgba(255,255,255,0.75);
+    backdrop-filter:blur(8px);
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    margin-bottom:30px;
+}
+
+.card h3{
+    color:#0066ff;
+    margin-bottom:10px;
+}
+
+ul{
+    margin-left:20px;
+    line-height:1.6;
+}
+
+/* ================== BUTTONS ================== */
 
 .btn{
     display:inline-block;
     padding:10px 22px;
-    margin-top:25px;
-    margin-right:15px;
+    margin-top:20px;
     border-radius:25px;
     text-decoration:none;
     transition:0.3s;
@@ -130,7 +145,7 @@ section{
 
 .primary{
     background:#0066ff;
-    color:#fff;
+    color:white;
 }
 
 .outline{
@@ -143,28 +158,7 @@ section{
     opacity:0.9;
 }
 
-/* ================= CARD ================= */
-
-.card{
-    background:rgba(255,255,255,0.9);
-    padding:25px;
-    border-radius:15px;
-    margin-bottom:25px;
-    box-shadow:0 5px 25px rgba(0,0,0,0.05);
-    backdrop-filter:blur(6px);
-}
-
-.card h3{
-    margin-bottom:10px;
-    color:#0066ff;
-}
-
-ul{
-    margin-left:20px;
-    line-height:1.6;
-}
-
-/* ================= FOOTER ================= */
+/* ================== FOOTER ================== */
 
 footer{
     text-align:center;
@@ -173,16 +167,18 @@ footer{
     color:#555;
 }
 
-/* ================= MOBILE ================= */
+/* ================== MOBILE ================== */
 
 @media(max-width:768px){
-    .hero h1{
-        font-size:36px;
-    }
 
     nav ul{
         display:none;
     }
+
+    .hero h1{
+        font-size:35px;
+    }
+
 }
 
 </style>
@@ -190,12 +186,12 @@ footer{
 
 <body>
 
-<!-- Scroll Background -->
-<img id="scroll-bg" src="frames/ezgif-frame-001.jpg">
+<!-- Scrollable Background Animation -->
+<img id="scroll-animation" src="frames/ezgif-frame-001.jpg" alt="Background Animation">
 
 <!-- NAVBAR -->
 <nav>
-    <h2>Pavithra</h2>
+    <h2>Your Name</h2>
     <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
@@ -208,43 +204,54 @@ footer{
 
 <!-- HERO -->
 <section id="home" class="hero">
-    <h1>Pavithra</h1>
+    <h1>Your Name</h1>
     <h3>ECE Student | Embedded Systems & IoT Enthusiast</h3>
     <p>
-        (Your full professional summary from resume will be inserted here once you provide it.)
+        Passionate Electronics and Communication Engineering student interested in
+        Embedded Systems, IoT, and hardware-based real-time projects.
+        Seeking internships and industry opportunities to apply technical skills.
     </p>
 
     <a href="resume.pdf" class="btn primary" download>Download Resume</a>
-    <a href="#projects" class="btn outline">View Projects</a>
+    <a href="#contact" class="btn outline">Contact Me</a>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
     <h2 class="section-title">About Me</h2>
+
     <div class="card">
-        <p>(Your detailed profile summary from resume)</p>
+        <ul>
+            <li>B.E. Electronics and Communication Engineering</li>
+            <li>Strong interest in Hardware & Embedded Systems</li>
+            <li>Quick learner & problem solver</li>
+            <li>Interested in IoT and Communication domain</li>
+        </ul>
     </div>
 </section>
 
 <!-- EDUCATION -->
 <section id="education">
     <h2 class="section-title">Education</h2>
+
     <div class="card">
         <h3>B.E. Electronics and Communication Engineering</h3>
-        <p>Government College of Engineering, Tirunelveli</p>
-        <p>CGPA: 7.96</p>
+        <p>Government College of Engineering</p>
+        <p>CGPA: 7.9+</p>
     </div>
 </section>
 
 <!-- SKILLS -->
 <section id="skills">
     <h2 class="section-title">Technical Skills</h2>
+
     <div class="card">
         <ul>
-            <li>(Programming languages from resume)</li>
-            <li>(Hardware tools)</li>
-            <li>(Software tools)</li>
-            <li>(IoT platforms)</li>
+            <li>C / C++</li>
+            <li>Embedded C</li>
+            <li>Arduino / ESP32</li>
+            <li>IoT Fundamentals</li>
+            <li>MATLAB</li>
         </ul>
     </div>
 </section>
@@ -252,15 +259,20 @@ footer{
 <!-- PROJECTS -->
 <section id="projects">
     <h2 class="section-title">Projects</h2>
+
     <div class="card">
-        <h3>Project Title</h3>
-        <p>(Project description extracted from resume)</p>
+        <h3>Rain Detection System</h3>
+        <p>
+            Designed a rain detection system using sensors and microcontroller
+            for real-time weather monitoring.
+        </p>
     </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
     <h2 class="section-title">Contact</h2>
+
     <div class="card">
         <p>Email: yourmail@example.com</p>
         <p>Location: Tamil Nadu, India</p>
@@ -268,15 +280,14 @@ footer{
 </section>
 
 <footer>
-© 2026 Pavithra | Professional Portfolio
+© 2026 Your Name | Professional Resume
 </footer>
 
+<!-- SCROLL FRAME SCRIPT -->
 <script>
 
-/* Scroll Controlled Frame Animation */
-
 const frameCount = 240;
-const img = document.getElementById("scroll-bg");
+const img = document.getElementById("scroll-animation");
 
 window.addEventListener("scroll", () => {
 
@@ -298,7 +309,3 @@ window.addEventListener("scroll", () => {
 
 </body>
 </html>
-   
-  
-
-
