@@ -133,4 +133,153 @@ canvas{
 /* ========== SKILLS GRID ========== */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
+
+.skill{
+  background:rgba(255,255,255,0.05);
+  padding:15px;
+  border-radius:8px;
+  text-align:center;
+  backdrop-filter:blur(5px);
+}
+
+/* ========== FOOTER ========== */
+footer{
+  text-align:center;
+  padding:30px;
+  color:#aaa;
+}
+
+/* Responsive */
+@media(max-width:768px){
+  .hero h1{
+    font-size:32px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Scroll Animation -->
+<div id="animation-container">
+  <canvas id="animationCanvas"></canvas>
+</div>
+
+<div class="content">
+
+<section class="hero">
+  <h1>Pavithra</h1>
+  <h3>ECE Student | Embedded Systems & IoT Enthusiast</h3>
+  <p>
+    I am a passionate 3rd year Electronics and Communication Engineering student at Government College of Engineering, Tirunelveli with a CGPA of 7.96. I am interested in Embedded Systems, IoT and real-time hardware-based projects. I am eager to apply my technical skills in internships and practical industry applications.
+  </p>
+  <a href="#" class="btn">Download Resume</a>
+  <a href="#education" class="btn">View Details</a>
+</section>
+
+<section class="section">
+  <h2>About Me</h2>
+  <div class="card">
+    • Currently pursuing B.E. Electronics and Communication Engineering (3rd Year) <br>
+    • CGPA: 7.96 <br>
+    • Strong interest in electronics hardware <br>
+    • Passionate about learning new technologies <br>
+    • Quick learner and problem solver <br>
+    • Interested in Embedded Systems and Communication domain
+  </div>
+</section>
+
+<section id="education" class="section">
+  <h2>Education</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h3>B.E. Electronics and Communication Engineering</h3>
+      <p>Government College of Engineering, Tirunelveli</p>
+      <span>2023 – 2027 | CGPA: 7.96</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Skills</h2>
+  <div class="grid">
+    <div class="skill">Embedded Systems</div>
+    <div class="skill">IoT</div>
+    <div class="skill">Arduino</div>
+    <div class="skill">ESP32</div>
+    <div class="skill">Digital Electronics</div>
+    <div class="skill">C Programming</div>
+    <div class="skill">Python</div>
+    <div class="skill">MATLAB</div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Contact</h2>
+  <div class="card">
+    Tamil Nadu, India <br>
+    yourmail@example.com <br>
+    +91-XXXXXXXXXX
+  </div>
+</section>
+
+<footer>
+  © 2026 Pavithra | All Rights Reserved
+</footer>
+
+</div>
+
+<script>
+const canvas = document.getElementById("animationCanvas");
+const context = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const frameCount = 240;
+
+const currentFrame = index =>
+  `frames/ezgif-frame-${String(index).padStart(3,'0')}.jpg`;
+
+const images = [];
+const imageSeq = { frame: 1 };
+
+for (let i = 1; i <= frameCount; i++) {
+  const img = new Image();
+  img.src = currentFrame(i);
+  images.push(img);
+}
+
+function render() {
+  context.clearRect(0,0,canvas.width,canvas.height);
+  context.drawImage(images[imageSeq.frame - 1],0,0,canvas.width,canvas.height);
+}
+
+window.addEventListener("scroll", () => {
+  const scrollTop = document.documentElement.scrollTop;
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  const scrollFraction = scrollTop / maxScroll;
+
+  const frameIndex = Math.min(
+    frameCount - 1,
+    Math.floor(scrollFraction * frameCount)
+  );
+
+  imageSeq.frame = frameIndex + 1;
+  requestAnimationFrame(render);
+});
+
+window.addEventListener("resize", () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  render();
+});
+
+images[0].onload = render;
+</script>
+
+</body>
+</html>
