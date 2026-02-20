@@ -3,9 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pavithra | ECE Portfolio</title>
+<title>Pavithra | Resume Portfolio</title>
 
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -27,14 +26,30 @@ body{
     font-family:'Inter', sans-serif;
     color:var(--dark);
     background:var(--white);
+    position:relative;
+    overflow-x:hidden;
 }
 
-/* NAVBAR */
+/* ===== Scroll Animation Background ===== */
+#scroll-animation{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-1;
+    opacity:0.06; /* 🔥 Reduced opacity for soft watermark effect */
+    pointer-events:none;
+}
+
+/* ===== NAVBAR ===== */
 nav{
     position:fixed;
     width:100%;
     top:0;
-    background:var(--white);
+    background:rgba(255,255,255,0.85);
+    backdrop-filter:blur(6px);
     padding:15px 8%;
     display:flex;
     justify-content:space-between;
@@ -65,9 +80,11 @@ nav ul li a:hover{
     color:var(--primary);
 }
 
-/* SECTION BASE */
+/* ===== SECTIONS ===== */
 section{
     padding:110px 8%;
+    position:relative;
+    z-index:1;
 }
 
 /* HERO */
@@ -76,8 +93,6 @@ section{
     display:flex;
     flex-direction:column;
     justify-content:center;
-    background:var(--light);
-    animation:fadeIn 1s ease-in;
 }
 
 .hero h1{
@@ -111,10 +126,6 @@ section{
     color:white;
 }
 
-.btn-primary:hover{
-    background:#004a99;
-}
-
 .btn-outline{
     border:2px solid var(--primary);
     color:var(--primary);
@@ -136,69 +147,21 @@ section{
     color:var(--primary);
 }
 
-/* ABOUT */
-.about{
-    max-width:800px;
-    margin:auto;
-    line-height:1.8;
+/* CONTENT BOX */
+.content-box{
+    background:rgba(255,255,255,0.92);
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.05);
+    backdrop-filter:blur(4px);
 }
 
-/* EDUCATION TIMELINE */
-.timeline{
-    position:relative;
-    max-width:800px;
-    margin:auto;
-}
-
-.timeline::before{
-    content:'';
-    position:absolute;
-    left:20px;
-    top:0;
-    bottom:0;
-    width:3px;
-    background:var(--primary);
-}
-
-.timeline-item{
-    padding-left:60px;
-    margin-bottom:40px;
-    position:relative;
-}
-
-.timeline-item::before{
-    content:'';
-    position:absolute;
-    left:13px;
-    top:8px;
-    width:15px;
-    height:15px;
-    background:var(--primary);
-    border-radius:50%;
-}
-
-.timeline-content{
-    background:var(--light);
-    padding:20px;
-    border-radius:8px;
-}
-
-/* CONTACT */
-.contact{
-    text-align:center;
-}
-
+/* FOOTER */
 footer{
     background:var(--primary);
     color:white;
     text-align:center;
     padding:20px;
-}
-
-/* ANIMATIONS */
-@keyframes fadeIn{
-    from{opacity:0; transform:translateY(20px);}
-    to{opacity:1; transform:translateY(0);}
 }
 
 /* RESPONSIVE */
@@ -218,6 +181,9 @@ footer{
 
 <body>
 
+<!-- Scroll Animation Image -->
+<img id="scroll-animation" src="frames/ezgif-frame-001.jpg" alt="background animation">
+
 <!-- NAVBAR -->
 <nav>
     <h2>Pavithra</h2>
@@ -228,71 +194,79 @@ footer{
     </ul>
 </nav>
 
-<!-- HERO SECTION -->
+<!-- HERO -->
 <section class="hero">
-    <h1>Pavithra</h1>
-    <h3>ECE Student | Embedded Systems & IoT Enthusiast</h3>
-    <p>
-        I am a passionate 3rd year Electronics and Communication Engineering student at 
-        Government College of Engineering, Tirunelveli with a CGPA of 7.96. 
-        I am interested in Embedded Systems, IoT and real-time hardware-based projects. 
-        I am eager to apply my technical skills in internships and practical industry applications.
-    </p>
-
-    <div>
+    <div class="content-box">
+        <h1>Pavithra</h1>
+        <h3>ECE Student | Embedded Systems & IoT Enthusiast</h3>
+        <p>
+            Passionate Electronics and Communication Engineering student 
+            interested in Embedded Systems, IoT and real-time hardware projects.
+        </p>
         <a href="#" class="btn btn-primary">Download Resume</a>
-        <a href="#education" class="btn btn-outline">View Projects</a>
-        <a href="#contact" class="btn btn-outline">Contact Me</a>
+        <a href="#education" class="btn btn-outline">View Details</a>
     </div>
 </section>
 
-<!-- ABOUT SECTION -->
+<!-- ABOUT -->
 <section id="about">
     <div class="section-title">
         <h2>About Me</h2>
     </div>
-    <div class="about">
+    <div class="content-box">
         <p>
-            • Currently pursuing B.E. Electronics and Communication Engineering (3rd Year)<br><br>
-            • CGPA: 7.96<br><br>
-            • Strong interest in electronics hardware and circuit design<br><br>
-            • Passionate about learning new technologies<br><br>
-            • Quick learner and problem solver<br><br>
-            • Interested in Embedded Systems and Communication domain
+            B.E. Electronics and Communication Engineering (3rd Year)<br>
+            CGPA: 7.96<br>
+            Government College of Engineering, Tirunelveli<br>
+            Location: Tamil Nadu, India
         </p>
     </div>
 </section>
 
-<!-- EDUCATION SECTION -->
+<!-- EDUCATION -->
 <section id="education">
     <div class="section-title">
         <h2>Education</h2>
     </div>
-
-    <div class="timeline">
-        <div class="timeline-item">
-            <div class="timeline-content">
-                <h3>B.E. Electronics and Communication Engineering</h3>
-                <p><strong>Government College of Engineering, Tirunelveli</strong></p>
-                <p>CGPA: 7.96</p>
-                <p>2023 – Present</p>
-            </div>
-        </div>
+    <div class="content-box">
+        <h3>B.E. Electronics and Communication Engineering</h3>
+        <p>Government College of Engineering, Tirunelveli</p>
+        <p>CGPA: 7.96 | 2023 – Present</p>
     </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="contact">
+<section id="contact">
     <div class="section-title">
-        <h2>Contact Me</h2>
+        <h2>Contact</h2>
     </div>
-    <p>Email: yourmail@example.com</p>
-    <p>Location: Tamil Nadu, India</p>
+    <div class="content-box">
+        <p>Email: yourmail@example.com</p>
+        <p>Location: Tamil Nadu, India</p>
+    </div>
 </section>
 
 <footer>
-    © 2026 Pavithra | Electronics & Communication Engineering Portfolio
+    © 2026 Pavithra | Resume Portfolio
 </footer>
+
+<!-- Scroll Frame Animation Script -->
+<script>
+const totalFrames = 240;
+const animation = document.getElementById("scroll-animation");
+
+window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const scrollFraction = scrollTop / docHeight;
+    const frameIndex = Math.min(
+        totalFrames - 1,
+        Math.floor(scrollFraction * totalFrames)
+    );
+    const frameNumber = String(frameIndex + 1).padStart(3, '0');
+    animation.src = `frames/ezgif-frame-${frameNumber}.jpg`;
+});
+</script>
 
 </body>
 </html>
